@@ -8,14 +8,7 @@ npm install --save @calipsa/crock
 ```
 
 ## Usage
-Basic usage:
-```javascript
-const {
-  getVideoSnapshots,
-  imagesToVideo,
-} = require('@calipsa/crock')
-
-// ..
+TODO
 ```
 
 [npm-url]: https://npmjs.org/package/@calipsa/crock
