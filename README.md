@@ -9,7 +9,6 @@ npm install --save @calipsa/crock
 
 ## Usage
 TODO
-```
 
 [npm-url]: https://npmjs.org/package/@calipsa/crock
 [downloads-image]: http://img.shields.io/npm/dm/@calipsa/crock.svg
