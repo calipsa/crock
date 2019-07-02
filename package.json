@@ -1,0 +1,31 @@
+{
+  "name": "@calipsa/crock",
+  "version": "1.0.0",
+  "description": "Crock",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "jest --no-cache",
+    "lint": "tslint './src/**/*.ts'",
+    "build": "rm -rf build && tsc",
+    "build-publish": "npm run build && np"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calipsa/crock"
+  },
+  "keywords": [
+    "crock"
+  ],
+  "author": "Anton Veselev",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-jest": "^24.8.0",
+    "jest": "^24.7.1",
+    "np": "^5.0.3",
+    "tslint": "^5.18.0",
+    "typescript": "^3.4.2",
+    "uuid": "^3.3.2"
+  }
+}
