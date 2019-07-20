@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing crock (every test is being run 200 times internally) Should have the same alphabet 1`] = `"0123456789abcdefghjkmnpqrstvwxyz"`;
+exports[`Testing crock Should have the same alphabet 1`] = `"0123456789abcdefghjkmnpqrstvwxyz"`;
 
-exports[`Testing crock (every test is being run 200 times internally) Should have the same table 1`] = `
+exports[`Testing crock Should have the same table 1`] = `
 Object {
   "0": 0,
   "1": 1,
@@ -42,12 +42,12 @@ Object {
 }
 `;
 
-exports[`Testing crock (every test is being run 200 times internally) Should throw on bad UUID argument 1`] = `"Expected: a valid UUID. Got: foobarbaz"`;
+exports[`Testing crock Should throw on bad UUID argument 1`] = `"Expected: a valid UUID. Got: foobarbaz"`;
 
-exports[`Testing crock (every test is being run 200 times internally) Should throw on bad UUID argument 2`] = `"Expected: a valid UUID. Got: foobarbaz"`;
+exports[`Testing crock Should throw on bad UUID argument 2`] = `"Expected: a valid UUID. Got: foobarbaz"`;
 
-exports[`Testing crock (every test is being run 200 times internally) Should throw on bad UUID argument 3`] = `"Expected: a valid UUID. Got: foobarbaz"`;
+exports[`Testing crock Should throw on bad UUID argument 3`] = `"Expected: a valid UUID. Got: foobarbaz"`;
 
-exports[`Testing crock (every test is being run 200 times internally) Should throw on bad string length argument 1`] = `"Expected: string 10 characters long. Got: not_ten_characters"`;
+exports[`Testing crock Should throw on bad string length argument 1`] = `"Expected: string 10 characters long. Got: not_ten_characters"`;
 
-exports[`Testing crock (every test is being run 200 times internally) Should throw on bad string length argument 2`] = `"Expected: string 6 characters long. Got: not_six_characters"`;
+exports[`Testing crock Should throw on bad string length argument 2`] = `"Expected: string 6 characters long. Got: not_six_characters"`;

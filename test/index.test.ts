@@ -5,7 +5,7 @@ import table from '../src/table'
 import * as OldCrock from '../src/v1'
 import * as Crock from '../src/index'
 
-describe('Testing crock (every test is being run 200 times internally)', () => {
+describe('Testing crock', () => {
   it('Should have the same alphabet', () => {
     expect(alphabet).toMatchSnapshot()
   })
