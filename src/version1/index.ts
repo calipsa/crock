@@ -1,5 +1,5 @@
-import alphabet from './alphabet'
-import table from './table'
+import alphabet from '../alphabet'
+import table from '../table'
 
 function hexToOctet(hex: string) {
   const byteList: number[] = []
