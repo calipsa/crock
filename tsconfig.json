@@ -15,7 +15,7 @@
     "lib": [
       "es2017"
     ],
-    "outDir": "build"
+    "outDir": "dist"
   },
   "include": [
     "src/**/*"

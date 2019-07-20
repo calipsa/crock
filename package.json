@@ -2,12 +2,12 @@
   "name": "@calipsa/crock",
   "version": "1.1.0",
   "description": "Crock",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest --no-cache",
     "lint": "tslint './src/**/*.ts'",
-    "build": "rm -rf build && tsc",
+    "build": "rm -rf dist && tsc",
     "build-publish": "npm run build && np"
   },
   "repository": {
