@@ -3,11 +3,7 @@ module.exports = {
   modulePaths: [
     '<rootDir>',
   ],
-  moduleFileExtensions: [
-    'js',
-    'json',
-  ],
   transform: {
-    '\\.js$': '<rootDir>/node_modules/babel-jest',
+    '^.+\\.tsx?$': 'ts-jest',
   },
 }
