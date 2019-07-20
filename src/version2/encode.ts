@@ -1,7 +1,7 @@
 import alphabet from '../alphabet'
 
-function encode7hex(version: number, hexs: string) {
-  let bin = Number.parseInt(hexs, 16)
+function encode7hex(version: number, hex: string) {
+  let bin = Number.parseInt(hex, 16)
   let crockStr = ''
   for (let i = 0; i < 5; ++i) {
     crockStr = `${alphabet[bin & 31]}${crockStr}`
