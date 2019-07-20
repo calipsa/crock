@@ -3,10 +3,11 @@
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
 
 ## Installation
-```
-// using npm:
+```bash
+# using npm:
 npm install --save @calipsa/crock
-// or if you like yarn:
+
+# or if you like yarn:
 yarn add @calipsa/crock
 ```
 
