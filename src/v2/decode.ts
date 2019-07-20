@@ -1,4 +1,5 @@
 import getValue from '../getValue'
+import validateFirstArgLength from '../validators/validateFirstArgLength'
 
 function decodeCrock(letters: string) {
   let bin = 0
@@ -20,11 +21,7 @@ const decode8crockToHex = (letters: string) =>
  * NVR requirement the second bit is used as an isNvr flag leaving
  * just the first bit for versioning/reserved.
  */
-export function decode10crock(crock: string) {
-  if (crock.length !== 10) {
-    throw new Error('unknown encoding - length different from 10 characters')
-  }
-
+function decode10crockUnvalidated(crock: string) {
   const letters = crock.toLowerCase()
   const fst5bits = getValue(letters[0])
   const reserved = fst5bits >>> 4
@@ -43,11 +40,7 @@ export function decode10crock(crock: string) {
   }
 }
 
-export function decode6crock(crock: string) {
-  if (crock.length !== 6) {
-    throw new Error('unknown encoding - length different from 6 characters')
-  }
-
+function decode6crockUnvalidated(crock: string) {
   const letters = crock.toLowerCase()
   let bin = decodeCrock(letters)
   const version = bin >>> 28 // two first bits for version
@@ -60,3 +53,6 @@ export function decode6crock(crock: string) {
     uuid: bin.toString(16).padStart(7, '0'),
   }
 }
+
+export const decode10crock = validateFirstArgLength(decode10crockUnvalidated, 10)
+export const decode6crock = validateFirstArgLength(decode6crockUnvalidated, 6)

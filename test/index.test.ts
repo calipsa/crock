@@ -14,6 +14,18 @@ describe('Testing crock (every test is being run 200 times internally)', () => {
     expect(table).toMatchSnapshot()
   })
 
+  it('Should throw on bad UUID argument', () => {
+    const badUuid = 'foobarbaz'
+    expect(() => Crock.encodeCamera(badUuid)).toThrowErrorMatchingSnapshot()
+    expect(() => Crock.encodeSite(badUuid)).toThrowErrorMatchingSnapshot()
+    expect(() => Crock.encodeSubject(badUuid)).toThrowErrorMatchingSnapshot()
+  })
+
+  it('Should throw on bad string length argument', () => {
+    expect(() => Crock.decode10crock('not_ten_characters')).toThrowErrorMatchingSnapshot()
+    expect(() => Crock.decode6crock('not_six_characters')).toThrowErrorMatchingSnapshot()
+  })
+
   it('Should return false for every camera mailbox UUID codec', () => {
     for (let i = 0; i < 200; ++i) {
       const uuidSrc = Uuid()

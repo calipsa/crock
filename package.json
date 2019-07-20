@@ -19,10 +19,13 @@
   ],
   "author": "Anton Veselev",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "validator": "^11.1.0"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/uuid": "^3.4.5",
+    "@types/validator": "^10.11.1",
     "jest": "^24.7.1",
     "np": "^5.0.3",
     "ts-jest": "^24.0.2",
