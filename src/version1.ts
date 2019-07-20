@@ -74,7 +74,7 @@ function decode(letters: string) {
 }
 
 export function encodeUuid(uuid: string) {
-  const first48bits = uuid.substring(0, 8) + uuid.substring(9, 13)
+  const first48bits = `${uuid.substring(0, 8)}${uuid.substring(9, 13)}`
   const octetList = hexToOctet(first48bits)
   return encode(0, octetList)
 }

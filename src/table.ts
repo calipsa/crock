@@ -5,7 +5,11 @@ type Table = {
   [letter: string]: number,
 }
 
-const alias = { o: 0, i: 1, l: 1 }
+const alias = {
+  o: 0,
+  i: 1,
+  l: 1,
+}
 
 const table: Table = {}
 // Invert 'alphabet'
