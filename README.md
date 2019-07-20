@@ -11,7 +11,7 @@ yarn add @calipsa/crock
 ```
 
 ## Usage
-Install it & change your import path from `'../../../../whatever/crock'` with `'@calipsa/crock'`
+Install it & change your import path from `'../../../../whatever/crock'` to `'@calipsa/crock'`
 
 [npm-url]: https://npmjs.org/package/@calipsa/crock
 [downloads-image]: http://img.shields.io/npm/dm/@calipsa/crock.svg
