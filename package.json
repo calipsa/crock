@@ -8,7 +8,8 @@
     "test": "jest --no-cache",
     "lint": "tslint './src/**/*.ts'",
     "build": "rm -rf dist && tsc",
-    "build-publish": "npm run build && np"
+    "prepublishOnly": "npm run build",
+    "publish": "np"
   },
   "repository": {
     "type": "git",
