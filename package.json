@@ -1,6 +1,6 @@
 {
   "name": "@calipsa/crock",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Crock",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/uuid": "^3.4.5",
-    "@types/validator": "^10.11.1",
+    "@types/validator": "^10.11.2",
     "jest": "^24.7.1",
     "np": "^5.0.3",
     "ts-jest": "^24.0.2",
