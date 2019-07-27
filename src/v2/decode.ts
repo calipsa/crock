@@ -3,6 +3,12 @@ import table from '../table'
 import validateFirstArgLength from '../validators/validateFirstArgLength'
 import validateFirstArgCorrectEncoding from '../validators/validateFirstArgCorrectEncoding'
 
+const validateCrockArg = <F extends (crock: string) => any>(func: F, len: number) =>
+  validateFirstArgLength(
+    validateFirstArgCorrectEncoding(func),
+    len,
+  )
+
 function decodeCrock(letters: string) {
   let bin = 0
   for (const l of letters) {
@@ -55,12 +61,6 @@ function decode6crockUnvalidated(crock: string) {
     uuid: bin.toString(16).padStart(7, '0'),
   }
 }
-export const decode10crock = validateFirstArgLength(
-  validateFirstArgCorrectEncoding(decode10crockUnvalidated),
-  10,
-)
 
-export const decode6crock = validateFirstArgLength(
-  validateFirstArgCorrectEncoding(decode6crockUnvalidated),
-  6,
-)
+export const decode10crock = validateCrockArg(decode10crockUnvalidated, 10)
+export const decode6crock = validateCrockArg(decode6crockUnvalidated, 6)
