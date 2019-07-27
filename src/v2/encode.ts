@@ -1,4 +1,4 @@
-import alphabet from '../alphabet'
+import alphabet from '../data/alphabet'
 import validateFirstArgUuid from '../validators/validateFirstArgUuid'
 
 function encode7hex(hex: string, version: number) {

@@ -1,4 +1,4 @@
-import table from '../table'
+import table from '../data/table'
 import identity from '../utils/identity'
 import validate from './validate'
 

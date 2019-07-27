@@ -1,5 +1,4 @@
-import table from '../table'
-
+import table from '../data/table'
 import octetToHex from '../utils/octetToHex'
 
 function decode(letters: string) {

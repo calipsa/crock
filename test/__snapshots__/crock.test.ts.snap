@@ -1,47 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing crock Should have the same alphabet 1`] = `"0123456789abcdefghjkmnpqrstvwxyz"`;
-
-exports[`Testing crock Should have the same table 1`] = `
-Object {
-  "0": 0,
-  "1": 1,
-  "2": 2,
-  "3": 3,
-  "4": 4,
-  "5": 5,
-  "6": 6,
-  "7": 7,
-  "8": 8,
-  "9": 9,
-  "a": 10,
-  "b": 11,
-  "c": 12,
-  "d": 13,
-  "e": 14,
-  "f": 15,
-  "g": 16,
-  "h": 17,
-  "i": 1,
-  "j": 18,
-  "k": 19,
-  "l": 1,
-  "m": 20,
-  "n": 21,
-  "o": 0,
-  "p": 22,
-  "q": 23,
-  "r": 24,
-  "s": 25,
-  "t": 26,
-  "v": 27,
-  "w": 28,
-  "x": 29,
-  "y": 30,
-  "z": 31,
-}
-`;
-
 exports[`Testing crock Should throw on bad UUID argument 1`] = `"Expected: a valid UUID. Got: foobarbaz"`;
 
 exports[`Testing crock Should throw on bad UUID argument 2`] = `"Expected: a valid UUID. Got: foobarbaz"`;

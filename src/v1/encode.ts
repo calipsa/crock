@@ -1,5 +1,4 @@
-import alphabet from '../alphabet'
-
+import alphabet from '../data/alphabet'
 import hexToOctet from '../utils/hexToOctet'
 
 function encode(version: number, [a, b, c, d, e, f]: number[]) {
