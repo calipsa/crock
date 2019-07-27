@@ -1,11 +1,13 @@
-import getValue from '../getValue'
+import table from '../table'
+
 import validateFirstArgLength from '../validators/validateFirstArgLength'
+import validateFirstArgCorrectEncoding from '../validators/validateFirstArgCorrectEncoding'
 
 function decodeCrock(letters: string) {
   let bin = 0
   for (const l of letters) {
     bin <<= 5
-    bin |= getValue(l)
+    bin |= table[l]
   }
   return bin
 }
@@ -23,13 +25,13 @@ const decode8crockToHex = (letters: string) =>
  */
 function decode10crockUnvalidated(crock: string) {
   const letters = crock.toLowerCase()
-  const fst5bits = getValue(letters[0])
+  const fst5bits = table[letters[0]]
   const reserved = fst5bits >>> 4
   if (reserved) {
     throw new Error('unknown encoding')
   }
 
-  const snd5bits = getValue(letters[1])
+  const snd5bits = table[letters[1]]
   const fst8bits = (fst5bits & 7) << 5 | snd5bits
   const fst2Hex = fst8bits.toString(16).padStart(2, '0')
   const last10Hex = decode8crockToHex(letters.slice(2))
@@ -53,6 +55,12 @@ function decode6crockUnvalidated(crock: string) {
     uuid: bin.toString(16).padStart(7, '0'),
   }
 }
+export const decode10crock = validateFirstArgLength(
+  validateFirstArgCorrectEncoding(decode10crockUnvalidated),
+  10,
+)
 
-export const decode10crock = validateFirstArgLength(decode10crockUnvalidated, 10)
-export const decode6crock = validateFirstArgLength(decode6crockUnvalidated, 6)
+export const decode6crock = validateFirstArgLength(
+  validateFirstArgCorrectEncoding(decode6crockUnvalidated),
+  6,
+)

@@ -2,8 +2,18 @@ import * as Uuid from 'uuid/v4'
 
 import alphabet from '../src/alphabet'
 import table from '../src/table'
+
+import hexToOctet from '../src/utils/hexToOctet'
+import octetToHex from '../src/utils/octetToHex'
+
 import * as OldCrock from '../src/v1'
 import * as Crock from '../src/index'
+
+const generateHex = (len: number) =>
+  Math.random()
+    .toString(16)
+    .slice(2, len + 2)
+    .padStart(len, '0')
 
 describe('Testing crock', () => {
   it('Should have the same alphabet', () => {
@@ -22,8 +32,32 @@ describe('Testing crock', () => {
   })
 
   it('Should throw on bad string length argument', () => {
-    expect(() => Crock.decode10crock('not_ten_characters')).toThrowErrorMatchingSnapshot()
-    expect(() => Crock.decode6crock('not_six_characters')).toThrowErrorMatchingSnapshot()
+    expect(() => Crock.decode10crock('not10characters&badenc')).toThrowErrorMatchingSnapshot()
+    expect(() => Crock.decode6crock('not6characters&badenc')).toThrowErrorMatchingSnapshot()
+
+    expect(() => Crock.decode10crock('not10characters')).toThrowErrorMatchingSnapshot()
+    expect(() => Crock.decode6crock('not6characters')).toThrowErrorMatchingSnapshot()
+
+    expect(() => Crock.decode10crock('bad_encodi')).toThrowErrorMatchingSnapshot()
+    expect(() => Crock.decode6crock('bad_en')).toThrowErrorMatchingSnapshot()
+  })
+
+  it('Should convert hex to octet & back', () => {
+    const hexes = [
+      '',
+      '00',
+      '0000',
+      '00000000',
+    ]
+    for (let i = 0; i < 200; ++i) {
+      const hex = generateHex(8)
+      hexes.push(hex)
+    }
+    for (const hex of hexes) {
+      const octet = hexToOctet(hex)
+      const hex2 = octetToHex(octet)
+      expect(hex2).toBe(hex)
+    }
   })
 
   it('Should return false for every camera mailbox UUID codec', () => {

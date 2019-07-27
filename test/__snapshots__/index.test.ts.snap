@@ -48,6 +48,14 @@ exports[`Testing crock Should throw on bad UUID argument 2`] = `"Expected: a val
 
 exports[`Testing crock Should throw on bad UUID argument 3`] = `"Expected: a valid UUID. Got: foobarbaz"`;
 
-exports[`Testing crock Should throw on bad string length argument 1`] = `"Expected: string 10 characters long. Got: not_ten_characters"`;
+exports[`Testing crock Should throw on bad string length argument 1`] = `"Expected: string 10 characters long. Got: not10characters&badenc"`;
 
-exports[`Testing crock Should throw on bad string length argument 2`] = `"Expected: string 6 characters long. Got: not_six_characters"`;
+exports[`Testing crock Should throw on bad string length argument 2`] = `"Expected: string 6 characters long. Got: not6characters&badenc"`;
+
+exports[`Testing crock Should throw on bad string length argument 3`] = `"Expected: string 10 characters long. Got: not10characters"`;
+
+exports[`Testing crock Should throw on bad string length argument 4`] = `"Expected: string 6 characters long. Got: not6characters"`;
+
+exports[`Testing crock Should throw on bad string length argument 5`] = `"Expected: correctly encoded string. Got: bad_encodi"`;
+
+exports[`Testing crock Should throw on bad string length argument 6`] = `"Expected: correctly encoded string. Got: bad_en"`;

@@ -1,3 +1,3 @@
-export { encodeUuid } from './encode'
+export { default as encodeUuid } from './encode'
 
-export { decodeUuid } from './decode'
+export { default as decodeUuid } from './decode'

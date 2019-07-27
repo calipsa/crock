@@ -1,15 +1,6 @@
 import alphabet from '../alphabet'
 
-function hexToOctet(hex: string) {
-  const byteList: number[] = []
-  const len = hex.length
-  for (let i = 0; i < len; i += 2) {
-    const hexPair = hex.substring(i, i + 2)
-    const octet = Number.parseInt(hexPair, 16)
-    byteList.push(octet)
-  }
-  return byteList
-}
+import hexToOctet from '../utils/hexToOctet'
 
 function encode(version: number, [a, b, c, d, e, f]: number[]) {
   const values = [
@@ -29,8 +20,8 @@ function encode(version: number, [a, b, c, d, e, f]: number[]) {
     .join('')
 }
 
-export function encodeUuid(uuid: string) {
-  const first48bits = `${uuid.substring(0, 8)}${uuid.substring(9, 13)}`
+export default (uuid: string) => {
+  const first48bits = `${uuid.slice(0, 8)}${uuid.slice(9, 13)}`
   const octetList = hexToOctet(first48bits)
   return encode(0, octetList)
 }
