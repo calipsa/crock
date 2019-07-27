@@ -2,7 +2,7 @@ import table from '../table'
 import identity from '../utils/identity'
 import validate from './validate'
 
-const firstArgIsCorrectEncoding = (firstArg: string, ...rest: any[]) =>
+const firstArgIsCorrectEncoding = (firstArg: string) =>
   [...firstArg].every(l => table.hasOwnProperty(l.toLowerCase()))
 
 /**

@@ -3,7 +3,7 @@ import * as isUUID from 'validator/lib/isUUID'
 import identity from '../utils/identity'
 import validate from './validate'
 
-const firstArgIsUuid = (firstArg: string, ...rest: any[]) =>
+const firstArgIsUuid = (firstArg: string) =>
   isUUID(firstArg)
 
 /**

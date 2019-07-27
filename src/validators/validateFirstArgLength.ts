@@ -12,7 +12,7 @@ export default <F extends (first: string, ...args: any[]) => any>(
   // @ts-ignore
   validate(
     func,
-    (firstArg, ...rest) => firstArg.length === length,
+    (firstArg) => firstArg.length === length,
     `string ${length} characters long`,
     identity,
   )
