@@ -1,5 +1,7 @@
 import table from '../table'
 
+import binToHex from '../utils/binToHex'
+
 import validateFirstArgLength from '../validators/validateFirstArgLength'
 import validateFirstArgCorrectEncoding from '../validators/validateFirstArgCorrectEncoding'
 
@@ -19,7 +21,7 @@ function decodeCrock(letters: string) {
 }
 
 const decode4crockToHex = (letters: string) =>
-  decodeCrock(letters).toString(16).padStart(5, '0')
+  binToHex(decodeCrock(letters), 5)
 
 const decode8crockToHex = (letters: string) =>
   `${decode4crockToHex(letters.slice(0, 4))}${decode4crockToHex(letters.slice(4, 8))}`
@@ -32,6 +34,7 @@ const decode8crockToHex = (letters: string) =>
 function decode10crockUnvalidated(crock: string) {
   const letters = crock.toLowerCase()
   const fst5bits = table[letters[0]]
+
   const reserved = fst5bits >>> 4
   if (reserved) {
     throw new Error('unknown encoding')
@@ -39,7 +42,7 @@ function decode10crockUnvalidated(crock: string) {
 
   const snd5bits = table[letters[1]]
   const fst8bits = (fst5bits & 7) << 5 | snd5bits
-  const fst2Hex = fst8bits.toString(16).padStart(2, '0')
+  const fst2Hex = binToHex(fst8bits, 2)
   const last10Hex = decode8crockToHex(letters.slice(2))
 
   return {
@@ -50,15 +53,18 @@ function decode10crockUnvalidated(crock: string) {
 
 function decode6crockUnvalidated(crock: string) {
   const letters = crock.toLowerCase()
-  let bin = decodeCrock(letters)
+  const bin = decodeCrock(letters)
+
   const version = bin >>> 28 // two first bits for version
   if (version) {
     throw new Error('unknown encoding version')
   }
 
-  bin &= 0xfffffff
+  const fst28Bits = bin & 0xfffffff
+  const fst2Hex = binToHex(fst28Bits, 7)
+
   return {
-    uuid: bin.toString(16).padStart(7, '0'),
+    uuid: fst2Hex,
   }
 }
 

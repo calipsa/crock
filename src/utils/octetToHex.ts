@@ -1,18 +1,17 @@
 /*
  * quicker or slower?
  */
-/*
-function octetToHex (list) {
-  const hex = []
-  for (let o of list) {
-    let hexPair = o.toString(16)
-    if (hexPair.length < 2)
-      hexPair = '0' + hexPair
-    hex.push(hexPair)
-  }
-  return hex.join('')
-}
-*/
+// function octetToHex(list: number[]) {
+//   const hex = []
+//   for (const o of list) {
+//     let hexPair = o.toString(16)
+//     if (hexPair.length < 2) {
+//       hexPair = `0${hexPair}`
+//     }
+//     hex.push(hexPair)
+//   }
+//   return hex.join('')
+// }
 
 export default (list: number[]) => {
   const nums: number[] = []
