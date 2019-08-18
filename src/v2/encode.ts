@@ -1,5 +1,5 @@
 import alphabet from '../data/alphabet'
-import validateFirstArgUuid from '../validators/validateFirstArgUuid'
+import validateUuid from '../validators/validateUuid'
 
 function encode7hex(hex: string, version: number) {
   let bin = Number.parseInt(hex, 16)
@@ -42,17 +42,18 @@ function encodeMailbox(uuid: string, isNvr: boolean) {
   return encode12hex(fst12hex, isNvr, 0)
 }
 
-const encodeCameraUnvalidated = (uuid: string) =>
-  encodeMailbox(uuid, false /* not an NVR */)
+export function encodeCamera(uuid: string) {
+  validateUuid(uuid)
+  return encodeMailbox(uuid, false /* not an NVR */)
+}
 
-const encodeSiteUnvalidated = (uuid: string) =>
-  encodeMailbox(uuid, true /* is an NVR */)
+export function encodeSite(uuid: string) {
+  validateUuid(uuid)
+  return encodeMailbox(uuid, true /* is an NVR */)
+}
 
-function encodeSubjectUnvalidated(uuid: string) {
+export function encodeSubject(uuid: string) {
+  validateUuid(uuid)
   const first7hex = uuid.slice(0, 7)
   return encode7hex(first7hex, 0)
 }
-
-export const encodeCamera = validateFirstArgUuid(encodeCameraUnvalidated)
-export const encodeSite = validateFirstArgUuid(encodeSiteUnvalidated)
-export const encodeSubject = validateFirstArgUuid(encodeSubjectUnvalidated)

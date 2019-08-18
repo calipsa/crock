@@ -18,8 +18,8 @@ describe('Testing crock', () => {
     expect(() => Crock.decode10crock('not10characters')).toThrowErrorMatchingSnapshot()
     expect(() => Crock.decode6crock('not6characters')).toThrowErrorMatchingSnapshot()
 
-    expect(() => Crock.decode10crock('bad_encodi')).toThrowErrorMatchingSnapshot()
-    expect(() => Crock.decode6crock('bad_en')).toThrowErrorMatchingSnapshot()
+    expect(() => Crock.decode10crock('bad_encod+')).toThrowErrorMatchingSnapshot()
+    expect(() => Crock.decode6crock('bad_e$')).toThrowErrorMatchingSnapshot()
   })
 
   it('Should return false for every camera mailbox UUID codec', () => {

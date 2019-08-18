@@ -2,14 +2,8 @@ import table from '../data/table'
 
 import binToHex from '../utils/binToHex'
 
-import validateFirstArgLength from '../validators/validateFirstArgLength'
-import validateFirstArgCorrectEncoding from '../validators/validateFirstArgCorrectEncoding'
-
-const validateCrockArg = <F extends (crock: string) => any>(func: F, len: number) =>
-  validateFirstArgLength(
-    validateFirstArgCorrectEncoding(func),
-    len,
-  )
+import validateStringLength from '../validators/validateStringLength'
+import validateCorrectEncoding from '../validators/validateCorrectEncoding'
 
 function decodeCrock(letters: string) {
   let bin = 0
@@ -31,7 +25,10 @@ const decode8crockToHex = (letters: string) =>
  * NVR requirement the second bit is used as an isNvr flag leaving
  * just the first bit for versioning/reserved.
  */
-function decode10crockUnvalidated(crock: string) {
+export function decode10crock(crock: string) {
+  validateStringLength(crock, 10)
+  validateCorrectEncoding(crock)
+
   const letters = crock.toLowerCase()
   const fst5bits = table[letters[0]]
 
@@ -51,7 +48,10 @@ function decode10crockUnvalidated(crock: string) {
   }
 }
 
-function decode6crockUnvalidated(crock: string) {
+export function decode6crock(crock: string) {
+  validateStringLength(crock, 6)
+  validateCorrectEncoding(crock)
+
   const letters = crock.toLowerCase()
   const bin = decodeCrock(letters)
 
@@ -67,6 +67,3 @@ function decode6crockUnvalidated(crock: string) {
     uuid: fst2Hex,
   }
 }
-
-export const decode10crock = validateCrockArg(decode10crockUnvalidated, 10)
-export const decode6crock = validateCrockArg(decode6crockUnvalidated, 6)
