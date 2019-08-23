@@ -1,7 +1,7 @@
-import * as Uuid from 'uuid/v4'
-
 import * as OldCrock from '../src/v1'
 import * as Crock from '../src/index'
+
+import uuids from './data/uuids'
 
 describe('Testing crock', () => {
   it('Should throw on bad UUID argument', () => {
@@ -23,8 +23,7 @@ describe('Testing crock', () => {
   })
 
   it('Should return false for every camera mailbox UUID codec', () => {
-    for (let i = 0; i < 200; ++i) {
-      const uuidSrc = Uuid()
+    for (const uuidSrc of uuids) {
       const camera = Crock.encodeCamera(uuidSrc)
       const { isNvr, uuid } = Crock.decode10crock(camera)
       expect(isNvr).toBe(false)
@@ -33,8 +32,7 @@ describe('Testing crock', () => {
   })
 
   it('Should return true for every site mailbox UUID codec', () => {
-    for (let i = 0; i < 200; ++i) {
-      const uuidSrc = Uuid()
+    for (const uuidSrc of uuids) {
       const site = Crock.encodeSite(uuidSrc)
       const { isNvr, uuid } = Crock.decode10crock(site)
       expect(isNvr).toBe(true)
@@ -43,8 +41,7 @@ describe('Testing crock', () => {
   })
 
   it('Should check UUID of every email subject UUID codec', () => {
-    for (let i = 0; i < 200; ++i) {
-      const uuidSrc = Uuid()
+    for (const uuidSrc of uuids) {
       const subject = Crock.encodeSubject(uuidSrc)
       const { uuid } = Crock.decode6crock(subject)
       expect(uuid).toBe(uuidSrc.slice(0, 7))
@@ -52,8 +49,7 @@ describe('Testing crock', () => {
   })
 
   it('Should check if new mailbox codec behaves as old', () => {
-    for (let i = 0; i < 200; ++i) {
-      const uuidSrc = Uuid()
+    for (const uuidSrc of uuids) {
       const cameraNew = Crock.encodeCamera(uuidSrc)
       const cameraOld = OldCrock.encodeUuid(uuidSrc)
       expect(cameraNew).toBe(cameraOld)
