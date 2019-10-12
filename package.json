@@ -9,7 +9,7 @@
     "lint": "tslint './src/**/*.ts'",
     "build": "rm -rf dist && tsc",
     "prepublishOnly": "npm run build",
-    "publish": "np"
+    "release": "np"
   },
   "repository": {
     "type": "git",
