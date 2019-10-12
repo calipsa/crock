@@ -13,7 +13,7 @@
 //   return hex.join('')
 // }
 
-export default (list: number[]) => {
+export default (list: readonly number[]) => {
   const nums: number[] = []
   for (const o of list) {
     nums.push(

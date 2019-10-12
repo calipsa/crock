@@ -1,7 +1,7 @@
 import alphabet from '../data/alphabet'
 import hexToOctet from '../utils/hexToOctet'
 
-function encode(version: number, [a, b, c, d, e, f]: number[]) {
+function encode(version: number, [a, b, c, d, e, f]: readonly number[]) {
   const values = [
     (version << 3) | (a >>> 5),
     a & 0x1f,

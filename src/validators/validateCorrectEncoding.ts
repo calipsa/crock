@@ -3,7 +3,7 @@ import table from '../data/table'
 const letterIsAbsent = (letter: string) =>
   !table.hasOwnProperty(letter.toLowerCase())
 
-const lettersAsString = (letters: string[]) =>
+const lettersAsString = (letters: readonly string[]) =>
   letters.map(letter => `"${letter}"`).join(', ')
 
 /**
