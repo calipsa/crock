@@ -1,6 +1,7 @@
 import table from '../data/table'
 
 const letterIsAbsent = (letter: string) =>
+  // eslint-disable-next-line no-prototype-builtins
   !table.hasOwnProperty(letter.toLowerCase())
 
 const lettersAsString = (letters: readonly string[]) =>
