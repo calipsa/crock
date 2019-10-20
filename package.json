@@ -8,8 +8,7 @@
     "test": "jest --no-cache",
     "lint": "eslint './src/**/*.ts'",
     "build": "rm -rf dist && tsc",
-    "prepublishOnly": "npm run build",
-    "release": "np"
+    "release": "npm run build && np"
   },
   "repository": {
     "type": "git",
@@ -24,8 +23,8 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
-    "@calipsa/eslint-config-typescript": "^1.0.0",
-    "@types/jest": "^24.0.18",
+    "@calipsa/eslint-config-typescript": "^1.1.0",
+    "@types/jest": "^24.0.19",
     "@types/validator": "^10.11.3",
     "eslint": "^6.5.1",
     "jest": "^24.9.0",
