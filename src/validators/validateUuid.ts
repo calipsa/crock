@@ -1,4 +1,4 @@
-import * as isUUID from 'validator/lib/isUUID'
+import isUUID from 'validator/lib/isUUID'
 
 /**
  * Validate the first argument is a valid UUID.
