@@ -5,7 +5,7 @@ function encode7hex(hex: string, version: number) {
   let bin = Number.parseInt(hex, 16)
   let crockStr = ''
   for (let i = 0; i < 5; ++i) {
-    crockStr = `${alphabet[bin & 31]}${crockStr}`
+    crockStr = `${alphabet[bin & 0x1f]}${crockStr}`
     bin >>>= 5
   }
 
